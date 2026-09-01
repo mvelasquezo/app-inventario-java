@@ -1,0 +1,31 @@
+# Ignorar archivos de entorno o credenciales
+.env
+
+# Ignorar carpetas de dependencias
+node_modules/
+
+# Ignorar archivos de registros (logs)
+*.log
+
+# Ignorar archivos de temporales
+*.tmp
+
+# Ignorar carpetas o archivos temporales del sistema operativo
+.DS_Store
+Thumbs.db
+
+### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+gen/
+
+### Herramientas de Compilación (Maven) ###
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.next
+pom.xml.sonar
+release.properties
