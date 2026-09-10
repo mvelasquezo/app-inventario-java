@@ -9,6 +9,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+@lombok.ToString
 public class InventarioController {
 
     private Inventario inventarioService;
@@ -35,6 +36,41 @@ public class InventarioController {
     }
 }
 
+class Agregar implements ActionListener {
+    private Inventario inventarioService;
+    private InventarioView inventarioView;
+
+    public Agregar(
+            InventarioView inventarioView,
+            Inventario inventarioService ) {
+
+        this.inventarioService = inventarioService;
+        this.inventarioView = inventarioView;
+    }
+
+    public void actionPerformed( ActionEvent e ) {
+        String sku = inventarioView.uiJtSku.getText();
+        String nombre = inventarioView.uiJtNombre.getText();
+        String scantidad = inventarioView.uiJtCantidad.getText();
+
+        if( !util.MyUtil.validar( sku ) || !util.MyUtil.validar( nombre )
+                || !util.MyUtil.validar( scantidad ) )
+            return;
+
+        int cantidad = util.MyUtil.toInt( scantidad, 0 );
+
+        Producto p = new Producto( sku, nombre, cantidad );
+
+        inventarioService.addProducto( p );
+
+        inventarioView.model.addRow( p.toRowArray() ); //addRow( new Object[] { sku, nombre } )
+
+        inventarioView.uiJtGrilla.setModel( inventarioView.model );
+
+        inventarioView.limpiarCampos( "" );
+    }
+}
+
 class Cargar implements ActionListener {
     private Inventario inventarioService;
     private InventarioView inventarioView;
@@ -55,7 +91,7 @@ class Cargar implements ActionListener {
         inventarioService.init();
 
         for( Producto p: inventarioService.getLista() )
-            inventarioView.model.addRow( new Object[] { p.getSku(), p.getNombre() } );
+            inventarioView.model.addRow( new Object[] { p.getSku(), p.getNombre(), p.getCantidad() } );
 
         inventarioView.uiJtGrilla.setModel( inventarioView.model );
     }
@@ -86,32 +122,5 @@ class Limpiar implements ActionListener {
     }
 }
 
-class Agregar implements ActionListener {
-    private Inventario inventarioService;
-    private InventarioView inventarioView;
 
-    public Agregar(
-            InventarioView inventarioView,
-            Inventario inventarioService ) {
-
-        this.inventarioService = inventarioService;
-        this.inventarioView = inventarioView;
-    }
-
-    public void actionPerformed( ActionEvent e ) {
-        String sku = inventarioView.uiJtSku.getText();
-        String nombre = inventarioView.uiJtNombre.getText();
-
-        if( !util.MyUtil.validar( sku ) || !util.MyUtil.validar( nombre ) )
-            return;
-
-        Producto p = new Producto( sku, nombre );
-
-        inventarioService.addProducto( p );
-
-        inventarioView.model.addRow( p.toRowArray() ); //addRow( new Object[] { sku, nombre } )
-
-        inventarioView.uiJtGrilla.setModel( inventarioView.model );
-    }
-}
 

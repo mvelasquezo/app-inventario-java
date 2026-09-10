@@ -15,4 +15,17 @@ public class MyUtil {
         java.util.function.Predicate<String> estrategia = val -> val != null && !val.isBlank() && !val.isEmpty();
         return estrategia.test( str );
     }
+
+    public static int toInt( String str, int valDefecto ) {
+
+        int myInt = -1;
+
+        try {
+            myInt = Integer.valueOf( str );
+        } catch( NumberFormatException e ) {
+            myInt = valDefecto;
+        }
+
+        return myInt;
+    }
 }

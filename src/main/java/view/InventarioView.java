@@ -18,6 +18,8 @@ public class InventarioView extends JFrame {
 
     public JTextField uiJtSku;
     public JTextField uiJtNombre;
+    public JTextField uiJtCantidad;
+
     public JButton uiJbAgregar;
     public JButton uiJbLimpiar;
 
@@ -32,7 +34,7 @@ public class InventarioView extends JFrame {
     }
 
     protected void initData() {
-        model = new DefaultTableModel( new String[]{ "SKU", "Nombre" }, 0 );
+        model = new DefaultTableModel( new String[]{ "SKU", "Nombre", "Cantidad" }, 0 );
     }
 
     protected void initUI() {
@@ -44,7 +46,16 @@ public class InventarioView extends JFrame {
 
         setDefaultCloseOperation( EXIT_ON_CLOSE );
 
-        getContentPane().add( uiJpMain );
+        new TextPrompt( "SKU", uiJtSku ).changeAlpha( 0.75f );
+        new TextPrompt( "Nombre", uiJtNombre ).changeAlpha( 0.75f );
+        new TextPrompt( "Cantidad", uiJtCantidad ).changeAlpha( 0.75f );
 
+        getContentPane().add( uiJpMain );
+    }
+
+    public void limpiarCampos( String str ) {
+        uiJtCantidad.setText( str );
+        uiJtNombre.setText( str );
+        uiJtSku.setText( str );
     }
 }

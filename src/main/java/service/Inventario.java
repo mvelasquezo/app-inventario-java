@@ -1,12 +1,10 @@
 package service;
 
 import lombok.Getter;
-import lombok.ToString;
-
 import java.util.List;
 import java.util.LinkedList;
 
-@ToString
+@lombok.ToString
 public class Inventario {
     @Getter
     private List<Producto> lista; //referenciación
@@ -16,9 +14,9 @@ public class Inventario {
     }
 
     public void init() {
-        addProducto( new Producto( "1001", "producto 1001" ) );
-        addProducto( new Producto( "1002", "producto 1002" ) );
-        addProducto( new Producto( "1003", "producto 1031" ) );
+        addProducto( new Producto( "1001", "pupítres", 48 ) );
+        addProducto( new Producto( "1002", "cañonera", 1 ) );
+        addProducto( new Producto( "1003", "ventana", 3 ) );
     }
 
     public boolean addProducto( Producto p ) throws RuntimeException {

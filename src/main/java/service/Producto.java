@@ -5,18 +5,20 @@ package service;
 public class Producto {
     private String sku;
     private String nombre;
+    private int cantidad;
 
-    public Producto( String sku, String nombre ) {
+    public Producto( String sku, String nombre, int cantidad ) {
         setSku( sku );
         setNombre( nombre );
+        setCantidad( cantidad );
     }
 
     public Producto( String sku ) {
-        this( sku, "" );
+        this( sku, "", 0 );
     }
 
     public Producto() {
-        this( "sku000", "" );
+        this( "sku000", "", 0 );
     }
 
     public Producto setSku( String sku ) {
@@ -29,7 +31,12 @@ public class Producto {
         return this;
     }
 
+    public Producto setCantidad( int cantidad ) {
+        this.cantidad = cantidad > 0 ? cantidad : 1;
+        return this;
+    }
+
     public Object[] toRowArray() {
-        return new Object[] { this.sku, this.nombre };
+        return new Object[] { this.sku, this.nombre, this.cantidad };
     }
 }
