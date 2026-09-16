@@ -51,6 +51,7 @@ public class InventarioView extends JFrame {
         new TextPrompt( "Cantidad", uiJtCantidad ).changeAlpha( 0.75f );
 
         getContentPane().add( uiJpMain );
+
     }
 
     public void limpiarCampos( String str ) {
