@@ -1,6 +1,6 @@
 package util;
 
-import org.junit.Before;
+import App.util.MyUtil;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

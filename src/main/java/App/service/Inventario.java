@@ -1,4 +1,4 @@
-package service;
+package App.service;
 
 import lombok.Getter;
 import java.util.List;

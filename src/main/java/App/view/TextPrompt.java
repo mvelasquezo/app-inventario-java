@@ -1,4 +1,4 @@
-package view;
+package App.view;
 
 import java.awt.*;
 import java.awt.event.*;

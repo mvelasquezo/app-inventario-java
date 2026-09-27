@@ -1,9 +1,10 @@
-package controller;
+package App.controller;
 
-import service.Inventario;
-import service.Producto;
+import App.service.Inventario;
+import App.service.Producto;
 
-import view.InventarioView;
+import App.util.MyUtil;
+import App.view.InventarioView;
 
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
@@ -53,11 +54,11 @@ class Agregar implements ActionListener {
         String nombre = inventarioView.uiJtNombre.getText();
         String scantidad = inventarioView.uiJtCantidad.getText();
 
-        if( !util.MyUtil.validar( sku ) || !util.MyUtil.validar( nombre )
-                || !util.MyUtil.validar( scantidad ) )
+        if( !MyUtil.validar( sku ) || !MyUtil.validar( nombre )
+                || !MyUtil.validar( scantidad ) )
             return;
 
-        int cantidad = util.MyUtil.toInt( scantidad, 0 );
+        int cantidad = MyUtil.toInt( scantidad, 0 );
 
         Producto p = new Producto( sku, nombre, cantidad );
 

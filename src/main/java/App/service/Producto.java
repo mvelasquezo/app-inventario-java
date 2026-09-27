@@ -1,4 +1,6 @@
-package service;
+package App.service;
+
+import App.util.MyUtil;
 
 @lombok.ToString
 @lombok.Getter
@@ -22,12 +24,12 @@ public class Producto {
     }
 
     public Producto setSku( String sku ) {
-        this.sku = util.MyUtil.trim( sku );
+        this.sku = MyUtil.trim( sku );
         return this;
     }
 
     public Producto setNombre( String nombre ) {
-        this.nombre = util.MyUtil.trim( nombre );
+        this.nombre = MyUtil.trim( nombre );
         return this;
     }
 

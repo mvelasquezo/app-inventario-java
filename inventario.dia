@@ -1832,7 +1832,7 @@
         <dia:point val="42.8986,19.8408"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="42.8374,19.7796;62.8092,25.3571"/>
+        <dia:rectangle val="42.8374,19.7796;62.8092,25.3572"/>
       </dia:attribute>
       <dia:attribute name="conn_endpoints">
         <dia:point val="42.8986,19.8408"/>
@@ -4120,11 +4120,11 @@
         <dia:point val="68.5676,30.3993"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="68.2611,30.3475;69.2223,36.3613"/>
+        <dia:rectangle val="68.2611,30.3476;69.2223,36.3613"/>
       </dia:attribute>
       <dia:attribute name="conn_endpoints">
         <dia:point val="68.5676,30.3993"/>
-        <dia:point val="68.7755,36.3095"/>
+        <dia:point val="68.7755,36.3096"/>
       </dia:attribute>
       <dia:attribute name="numcp">
         <dia:int val="1"/>

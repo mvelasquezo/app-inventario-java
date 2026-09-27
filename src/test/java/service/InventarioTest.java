@@ -1,5 +1,7 @@
 package service;
 
+import App.service.Inventario;
+import App.service.Producto;
 import org.junit.Before;
 import org.junit.Test;
 

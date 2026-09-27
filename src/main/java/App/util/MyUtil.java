@@ -1,4 +1,4 @@
-package util;
+package App.util;
 
 @lombok.ToString
 public class MyUtil {
